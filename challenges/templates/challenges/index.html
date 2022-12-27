@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenges Home</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home challenges{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static "challenges/challenges.css" %}">
+{% endblock %}
+
+
+{% block body %}
+    {% include "challenges/includes/header.html" with path='index'%}
     {% for month in months %}
         <li><a href="{% url 'monthly_challenges_path' month %}">{{ month|title }}</a></li>
     {% endfor %}
-    
-</body>
-</html>
+{% endblock body %}
